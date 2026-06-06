@@ -44,6 +44,18 @@ NexiGuard is disabled by default after activation. Logged-in administrators are 
 
 Emergency bypass: define `NEXIGUARD_DISABLE` as `true` in `wp-config.php` to stop all blocking.
 
+
+== External Services ==
+
+NexiGuard does not contact any external service by default.
+
+If an administrator selects API provider mode and configures an API endpoint, NexiGuard sends a GET request to that administrator-configured endpoint to look up country and region data for visitor IP addresses. The visitor IP address is sent in the configured URL using the `{ip}` placeholder or as an `ip` query parameter. If an API key is configured, it is sent as a Bearer token in the Authorization header.
+
+Because the API endpoint is entered by the site administrator, the site owner is responsible for reviewing that provider's terms of service and privacy policy before enabling API provider mode.
+
+Local IP and CIDR blocking do not use any external service. MaxMind mode reads a local database file and does not send visitor IPs externally.
+
+
 == Installation ==
 
 1. Upload the `nexiguard-ip-geo-access-control` folder to `/wp-content/plugins/`.
