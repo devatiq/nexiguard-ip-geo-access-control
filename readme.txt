@@ -1,5 +1,5 @@
 === NexiGuard – IP & Geo Access Control ===
-Contributors: nexiby
+Contributors: nexibyllc
 Tags: security, ip block, geo block, access control, firewall
 Requires at least: 6.0
 Tested up to: 7.0
@@ -83,12 +83,6 @@ Only blocked attempts are logged, and only when logging is enabled. Logs contain
 
 Logged-in administrators are excluded by default, and matching the current admin IP requires confirmation. You can also define `NEXIGUARD_DISABLE` as `true` in `wp-config.php`.
 
-== Screenshots ==
-
-1. General settings with access mode, response type, IP detection, GeoIP provider, logging, and cleanup settings.
-2. IP Blocking tab with single-rule add, bulk import, and rule table.
-3. Country & Region Blocking tab with ISO country selector and manual region rules.
-4. Logs tab with recent blocked attempts and clear logs button.
 
 == Changelog ==
 
