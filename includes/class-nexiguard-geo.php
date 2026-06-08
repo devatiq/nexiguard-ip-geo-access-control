@@ -16,6 +16,13 @@ class NexiGuard_Geo {
 	private $plugin;
 
 	/**
+	 * Request-local API lookup cache.
+	 *
+	 * @var array<string,array{country:string,region:string}>
+	 */
+	private $api_request_cache = array();
+
+	/**
 	 * Constructor.
 	 *
 	 * @param NexiGuard $plugin Plugin instance.
@@ -138,8 +145,8 @@ class NexiGuard_Geo {
 			return $this->empty_result();
 		}
 
-		$cache_key = 'nexiguard_geo_' . md5( $endpoint . '|' . $ip );
-		$cached    = get_transient( $cache_key );
+		$cache_key = $endpoint . '|' . $ip;
+		$cached    = $this->get_request_cached_api_result( $cache_key );
 
 		if ( is_array( $cached ) ) {
 			return $this->normalize_result( $cached );
@@ -184,9 +191,37 @@ class NexiGuard_Geo {
 			)
 		);
 
-		set_transient( $cache_key, $result, HOUR_IN_SECONDS );
+		$this->set_request_cached_api_result( $cache_key, $result );
 
 		return $result;
+	}
+
+	/**
+	 * Returns a cached API result for the current request only.
+	 *
+	 * Persistent per-IP transients are intentionally avoided here because public
+	 * traffic can create an unbounded number of visitor-specific database rows.
+	 *
+	 * @param string $cache_key Request cache key.
+	 * @return null|array{country:string,region:string}
+	 */
+	private function get_request_cached_api_result( $cache_key ) {
+		if ( isset( $this->api_request_cache[ $cache_key ] ) && is_array( $this->api_request_cache[ $cache_key ] ) ) {
+			return $this->api_request_cache[ $cache_key ];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Stores an API result for reuse during the current request only.
+	 *
+	 * @param string              $cache_key Request cache key.
+	 * @param array<string,mixed> $result    Lookup result.
+	 * @return void
+	 */
+	private function set_request_cached_api_result( $cache_key, $result ) {
+		$this->api_request_cache[ $cache_key ] = $this->normalize_result( $result );
 	}
 
 	/**
