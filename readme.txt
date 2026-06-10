@@ -1,5 +1,5 @@
 === NexiGuard – IP & Geo Access Control ===
-Contributors: nexibyllc
+Contributors: nexibyllc, atiqbd4ever
 Tags: security, ip block, geo block, access control, firewall
 Requires at least: 6.0
 Tested up to: 7.0
@@ -44,6 +44,12 @@ NexiGuard is disabled by default after activation. Logged-in administrators are 
 
 Emergency bypass: define `NEXIGUARD_DISABLE` as `true` in `wp-config.php` to stop all blocking.
 
+
+== Screenshots ==
+1. settings
+2. IP Blocking
+3. Country & Region Blockings
+4. Logs
 
 == External Services ==
 
