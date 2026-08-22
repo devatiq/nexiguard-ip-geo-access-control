@@ -2,9 +2,9 @@
 Contributors: nexibyllc, atiqbd4ever
 Tags: security, ip block, geo block, access control, firewall
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +103,10 @@ Logged-in administrators are excluded by default, and matching the current admin
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Enhancement: Completely redesigned the admin interface with premium glassmorphism aesthetics, dynamic header banners, and enhanced interactive elements.
+* Enhancement: Added real-time JS validation and type badges to data tables.
 
 = 1.0.0 =
 * Initial public release.

@@ -3,7 +3,7 @@
  * Plugin Name: NexiGuard – IP & Geo Access Control
  * Plugin URI: https://github.com/devatiq/nexiguard-ip-geo-access-control
  * Description: Restrict website access by IP address, CIDR ranges, countries, and regions.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Nexiby LLC
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NEXIGUARD_VERSION', '1.0.0' );
+define( 'NEXIGUARD_VERSION', '1.0.1' );
 define( 'NEXIGUARD_FILE', __FILE__ );
 define( 'NEXIGUARD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NEXIGUARD_URL', plugin_dir_url( __FILE__ ) );
